@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>G-AI Trade Education</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        :root {
+            --bg-color: var(--tg-theme-bg-color, #ffffff);
+            --text-color: var(--tg-theme-text-color, #222222);
+            --hint-color: var(--tg-theme-hint-color, #707579);
+            --link-color: var(--tg-theme-link-color, #2481cc);
+            --button-bg: var(--tg-theme-button-color, #2481cc);
+            --button-text: var(--tg-theme-button-text-color, #ffffff);
+            --secondary-bg: var(--tg-theme-secondary-bg-color, #f4f4f5);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 16px;
+            line-height: 1.5;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--secondary-bg);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .logo span {
+            color: #10b981;
+        }
+
+        .subtitle {
+            color: var(--hint-color);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .lesson-card {
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .lesson-meta {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 14px;
+            margin: 0 0 12px 0;
+            color: var(--text-color);
+        }
+
+        ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight {
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 11px;
+            color: var(--hint-color);
+        }
+
+        .disclaimer {
+            border-top: 1px solid var(--secondary-bg);
+            padding-top: 16px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">G-AI <span>Trade</span></div>
+        <p class="subtitle">Introductory Educational Course on Algorithmic Markets</p>
+    </header>
+
+    <!-- Lesson 1 -->
+    <div class="lesson-card">
+        <span class="lesson-meta">Lesson 1 / 4</span>
+        <h2>What is algorithmic trading?</h2>
+        <p>Algorithmic trading (&quot;algo trading&quot;) is software that <span class="highlight">buys and sells based on a fixed set of rules</span>, without a human pressing the button each time.</p>
+        <p>A rule looks like: <i>&quot;If asset X drops 0.3% in 60 seconds, buy a small amount; sell when it bounces 0.1%.&quot;</i> The computer applies that rule consistently — no emotion, no fatigue, no second-guessing.</p>
+        <p>Three things to know:</p>
+        <ul>
+            <li>It removes <span class="highlight">emotion</span> from execution — not from the strategy.</li>
+            <li>It needs <span class="highlight">data</span> — systems read exchange price feeds via APIs in milliseconds.</li>
+            <li>It represents <span class="highlight">most of the market</span> volume in major financial hubs.</li>
+        </ul>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div class="lesson-card">
+        <span class="lesson-meta">Lesson 2 / 4</span>
+        <h2>How arbitrage works (the mechanic)</h2>
+        <p>Example: At 14:02:03 Asset quotes €60,000 on Exchange A and €60,012 on Exchange B. An arb bot buys on A, sells on B, captures the €12 gap (minus fees), and the prices converge.</p>
+        <p>Why the gap exists:</p>
+        <ul>
+            <li>Different liquidity pools on each venue.</li>
+            <li>Different order flow at the exact moment of the snapshot.</li>
+            <li>Network latency between global exchanges.</li>
+        </ul>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div class="lesson-card">
+        <span class="lesson-meta">Lesson 3 / 4</span>
+        <h2>Risk, drawdown, and &quot;daily return&quot;</h2>
+        <p>If somebody advertises &quot;X% per day, guaranteed,&quot; treat it as a red flag — not because it's impossible, but because <span class="highlight">it's almost never the full picture</span>.</p>
+        <p>Three concepts every reader should know:</p>
+        <ul>
+            <li><span class="highlight">Volatility:</span> How much a price moves up and down. High volatility means more potential gain — and more potential loss.</li>
+            <li><span class="highlight">Drawdown:</span> The drop from a peak to a low. A strategy with high historical gains may also have temporary deep drawdown periods.</li>
+            <li><span class="highlight">Risk of ruin:</span> The probability that a streak of losses impacts the account. It depends on position sizing, not just edge.</li>
+        </ul>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div class="lesson-card">
+        <span class="lesson-meta">Lesson 4 / 4</span>
+        <h2>What AI can (and can't) do in markets</h2>
+        <p>AI in finance is real — but narrower than headlines suggest.</p>
+        <p>What it does well:</p>
+        <ul>
+            <li><span class="highlight">Pattern detection</span> at scales no human can match — reading millions of order-book snapshots per second.</li>
+            <li><span class="highlight">Speed</span> — reacting to a price move in microseconds.</li>
+        </ul>
+        <p>What it doesn't do:</p>
+        <ul>
+            <li><span class="highlight">Predict the future:</span> Statistical models say &quot;based on past data, X is more likely than Y,&quot; not &quot;X will happen.&quot;</li>
+            <li><span class="highlight">Eliminate risk:</span> Better execution does not mean zero negative trades.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <div class="disclaimer">
+            <span class="highlight">Educational content. Not investment advice.</span> All information provided in this mini application is for educational and informational purposes only. Past performance of any algorithmic model or market anomaly does not guarantee future results.
+        </div>
+        <p style="margin-top: 16px;">&copy; 2026 G-AI Trade Education Academy</p>
+    </footer>
+</div>
+
+<script>
+    // Инициализация Telegram WebApp
+    const tele = window.Telegram.WebApp;
+    tele.ready();
+    tele.expand(); // Разворачиваем на максимум внутри интерфейса ТГ
+</script>
+</body>
+</html>
