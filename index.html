@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G·AI Trade Academy — Algorithmic Trading & Arbitrage Course</title>
+    <title>G·AI Trade Academy Pro — Advanced Quantitative Systems</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root {
@@ -38,7 +38,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -62,13 +62,11 @@
         }
 
         .logo {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 20px;
             color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -79,6 +77,7 @@
             display: flex;
             gap: 24px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -98,26 +97,22 @@
             color: white !important;
             padding: 8px 16px;
             border-radius: 6px;
-            transition: background-color 0.2s !important;
+            font-weight: 600;
         }
 
-        .btn-cta:hover {
-            background-color: var(--accent-green-hover);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            padding: 60px 0 40px 0;
+            padding: 50px 0 30px 0;
             text-align: center;
         }
 
         .badge {
             background-color: var(--accent-light);
             color: var(--accent-green);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: inline-block;
@@ -125,30 +120,28 @@
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 46px;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
             margin-bottom: 16px;
-            color: var(--text-primary);
         }
 
         .hero p {
             font-size: 18px;
             color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto 24px auto;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* Main Content Layout */
+        /* Grid layout */
         .main-layout {
             display: grid;
-            grid-template-columns: 3fr 1fr;
+            grid-template-columns: 2.8fr 1.2fr;
             gap: 40px;
-            margin-top: 20px;
             margin-bottom: 80px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .main-layout {
                 grid-template-columns: 1fr;
             }
@@ -157,546 +150,21 @@
             }
         }
 
-        /* Articles / Lessons */
+        /* Lessons */
         .articles-list {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 32px;
         }
 
         .article-card {
             background-color: var(--bg-surface);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 32px;
+            padding: 36px;
             box-shadow: var(--shadow-sm);
         }
 
         .article-meta {
-            font-size: 13px;
-            color: var(--accent-green);
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .article-card h2 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.3px;
-        }
-
-        .article-card p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            font-size: 15px;
-        }
-
-        .highlight-box {
-            background-color: #f8fafc;
-            border-left: 4px solid var(--accent-green);
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 20px 0;
-        }
-
-        .highlight-box p {
-            margin-bottom: 0;
-            font-style: italic;
-            color: var(--text-primary);
-        }
-
-        .bullet-list {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .bullet-list li {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .bullet-list strong {
-            color: var(--text-primary);
-        }
-
-        /* Sidebar / Sticky Navigation */
-        .sidebar {
-            position: sticky;
-            top: 110px;
-            height: fit-content;
-        }
-
-        .sidebar-box {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 24px;
-        }
-
-        .sidebar-box h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .course-toc {
-            list-style: none;
-        }
-
-        .course-toc li {
-            margin-bottom: 12px;
-        }
-
-        .course-toc a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.2s;
-        }
-
-        .course-toc a:hover {
-            color: var(--accent-green);
-        }
-
-        /* Quiz Section */
-        .quiz-section {
-            background-color: #0f172a;
-            color: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .quiz-section h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .quiz-section p {
-            color: #94a3b8;
-            margin-bottom: 32px;
-        }
-
-        .quiz-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 20px;
-        }
-
-        .quiz-question {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .quiz-option {
-            background-color: #0f172a;
-            border: 1px solid #334155;
-            padding: 12px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
-            color: #cbd5e1;
-            width: 100%;
-        }
-
-        .quiz-option:hover:not(:disabled) {
-            border-color: #94a3b8;
-            color: white;
-        }
-
-        /* Классы для интерактивных ответов */
-        .quiz-option.correct-choice {
-            background-color: #065f46 !important;
-            border-color: #10b981 !important;
-            color: #ecfdf5 !important;
-        }
-
-        .quiz-option.incorrect-choice {
-            background-color: #991b1b !important;
-            border-color: #f43f5e !important;
-            color: #fff1f2 !important;
-        }
-
-        .quiz-option:disabled {
-            cursor: not-allowed;
-        }
-
-        .quiz-explanation {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #334155;
-            font-size: 14px;
-            color: #10b981;
-            display: none; /* Изначально скрыто */
-            flex-direction: column;
-            gap: 4px;
-        }
-        
-        .quiz-explanation span {
-            color: #94a3b8;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 60px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .faq-section h2 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-            padding: 18px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            font-size: 14.5px;
-            color: var(--text-secondary);
-        }
-
-        /* Bottom CTA */
-        .bottom-cta {
-            background: linear-gradient(135deg, #00875a 0%, #005236 100%);
-            color: white;
-            text-align: center;
-            padding: 50px 24px;
-            border-radius: 12px;
-            margin-bottom: 60px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .bottom-cta h2 {
-            font-size: 30px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .bottom-cta p {
-            font-size: 16px;
-            color: #e6f4ea;
-            max-width: 500px;
-            margin: 0 auto 24px auto;
-        }
-
-        .btn-large {
-            display: inline-block;
-            background-color: white;
-            color: var(--accent-green);
-            text-decoration: none;
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .btn-large:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            padding: 40px 0;
-            font-size: 13px;
-            border-top: 1px solid #1e293b;
-        }
-
-        .footer-content {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .footer-disclaimer {
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-            color: #64748b;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo">G<span>·</span>AI Trade Academy</a>
-            <ul class="nav-links">
-                <li><a href="#lessons">Lessons</a></li>
-                <li><a href="#quiz">Knowledge Test</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="https://t.me/GAITradeAppBot" class="btn-cta" target="_blank">Open App</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main class="container">
-        
-        <section class="hero">
-            <span class="badge">Educational Content</span>
-            <h1>Algorithmic Trading & Arbitrage</h1>
-            <p>Master the fundamental concepts of algorithmic financial markets, automated cross-venue arbitrage mechanics, and professional risk mitigation strategies.</p>
-        </section>
-
-        <div class="main-layout">
-            
-            <div class="articles-list" id="lessons">
-                
-                <!-- Lesson 1 -->
-                <article class="article-card" id="lesson1">
-                    <div class="article-meta">Lesson 1 / 4 • 1 min read</div>
-                    <h2>The Foundations of Algorithmic Trading</h2>
-                    <p>Algorithmic trading (commonly referred to as "algo trading") is the utilization of specialized software to automatically initiate and execute financial transactions based on a strictly predefined, immutable set of rules. This process completely eliminates the requirement for human manual entry or emotional intervention during live market hours.</p>
-                    
-                    <div class="highlight-box">
-                        <p><strong>A Practical Rule Example:</strong> "If Bitcoin (BTC) experiences a quick price decline of 0.3% within a rolling 60-second window, automatically execute a purchase order for a specified low volume. Subsequently, trigger a market sell order precisely when the price rebounds upward by 0.1% from the entry point."</p>
-                    </div>
-
-                    <p>The computer infrastructure applies these parameters seamlessly, continuously, and persistently, showing no emotional hesitation, physiological fatigue, or cognitive second-guessing. There are three core elements to grasp about automated execution:</p>
-                    
-                    <ul class="bullet-list">
-                        <li><strong>Elimination of Emotion from Execution, Not Strategy:</strong> The automated system operates solely on the exact logic programmed into it. If the underlying logical strategy is flawed, the algorithm will execute those bad trades flawlessly and at a vastly accelerated pace.</li>
-                        <li><strong>High Dependency on Data Feeds:</strong> Systems rely on direct exchange price feeds exposed via application programming interfaces (APIs). The quantitative logic reads, calculates, and evaluates these inputs in fractions of a millisecond.</li>
-                        <li><strong>Dominance in Global Markets:</strong> Automated quantitative trading accounts for the absolute majority of modern market volume. Current institutional estimates indicate that 60% to 75% of total U.S. equity trading volume is entirely algorithmic.</li>
-                    </ul>
-                </article>
-
-                <!-- Lesson 2 -->
-                <article class="article-card" id="lesson2">
-                    <div class="article-meta">Lesson 2 / 4 • 1 min read</div>
-                    <h2>The Mechanics of Multi-Market Arbitrage</h2>
-                    <p>Cross-venue arbitrage is an automated trading strategy designed to systematically exploit short-lived price discrepancies for the exact same underlying digital asset or financial instrument across different geographical or structural execution venues.</p>
-                    
-                    <div class="highlight-box">
-                        <p><strong>Step-by-Step Scenario:</strong> At precisely 14:02:03, Bitcoin (BTC) quotes are registered at €60,000 on Exchange A, while concurrently trading at €60,012 on Exchange B. An automated arbitrage bot instantly buys the asset on Venue A and sells it on Venue B, safely capturing the gross €12 structural gap. As arbitrageurs flood this mispricing, the widespread buying on A and selling on B causes the price spread to rapidly converge back to equilibrium.</p>
-                    </div>
-
-                    <p>These temporary price inefficiencies happen due to three main factors:</p>
-                    <ul class="bullet-list">
-                        <li><strong>Fragmented Liquidity:</strong> Discrepancies occur due to localized variations in market depth and organic trading volume unique to each isolated trading exchange.</li>
-                        <li><strong>Asynchronous Order Flow:</strong> Significant, concentrated block trades executed on one specific venue might not instantly impact the order books of competing platforms.</li>
-                        <li><strong>Network Latency:</strong> The physical time delay required for market data information packets to propagate across global data networks prevents synchronized global pricing.</li>
-                    </ul>
-
-                    <p>While conceptually straightforward, running arbitrage successfully requires advanced engineering. Spread gaps close completely within minor milliseconds, demanding ultra-fast computing infrastructure. Furthermore, exchange trading fees, deposit/withdrawal limits, and transfer times constantly threaten the net profitability margin. This is a real, institutional strategy used by major market makers and hedge funds, meaning the returns per individual transaction are highly compressed and depend heavily on perfect execution speeds.</p>
-                </article>
-
-                <!-- Lesson 3 -->
-                <article class="article-card" id="lesson3">
-                    <div class="article-meta">Lesson 3 / 4 • 1 min read</div>
-                    <h2>Risk Management: Volatility and Drawdown Realities</h2>
-                    <p>In automated trading, whenever marketing material guarantees explicit daily returns (e.g., "+5% per day, guaranteed"), it should immediately be treated as a definitive red flag. This skepticism is required because static average figures never present the complete risk landscape.</p>
-                    
-                    <p>To safely evaluate any quantitative system, every operator must fundamentally understand three vital concepts:</p>
-                    <ul class="bullet-list">
-                        <li><strong>Volatility:</strong> This metric calculates the overall size and frequency of an asset's price swings up and down. While heightened volatility expands the mathematical potential for substantial trading gains, it inherently introduces an identical potential for deep, rapid losses. Volatility represents market movement, not risk mitigation.</li>
-                        <li><strong>Drawdown:</strong> This represents the peak-to-trough decline in an account's equity curve during a specific trading period. For instance, a system showcasing a historical "5% average daily gain" may simultaneously go through a catastrophic "-40% maximum drawdown" month. Both metrics are inextricably linked to the same historical reality.</li>
-                        <li><strong>Risk of Ruin:</strong> This is the absolute mathematical probability that a sustained consecutive streak of trading losses will completely deplete the remaining capital account balance. Risk of ruin is highly dependent on position sizing parameters and leverage usage, rather than just the mathematical edge of the strategy.</li>
-                    </ul>
-
-                    <p>The definitive question to ask when reviewing any automated strategy is: <em>"What is the maximum historical drawdown observed during a comprehensive, unoptimized backtest?"</em> If a developer claims that no drawdown occurred, the backtest methodology is almost certainly wrong, overfitted, or intentionally fabricated.</p>
-                </article>
-
-                <!-- Lesson 4 -->
-                <article class="article-card" id="lesson4">
-                    <div class="article-meta">Lesson 4 / 4 • 1 min read</div>
-                    <h2>AI in Finance: Capabilities and Limitations</h2>
-                    <p>Artificial Intelligence in modern financial systems is highly effective, yet its operational parameters are significantly narrower than mainstream media headlines suggest. It functions as an optimized mathematical tool rather than an omniscient crystal ball.</p>
-                    
-                    <p>Modern machine learning models excel dramatically at three specific tasks:</p>
-                    <ul class="bullet-list">
-                        <li><strong>Advanced Pattern Detection:</strong> Processing millions of independent order-book snapshots every single second at scales no human brain can match.</li>
-                        <li><strong>Microsecond Execution Speeds:</strong> Instantaneously reacting to incoming price changes and structural liquidity shifts within microseconds.</li>
-                        <li><strong>Flawless Behavioral Consistency:</strong> Executing a strict logic sequence for the millionth time with the exact same precision as the very first configuration.</li>
-                    </ul>
-
-                    <p>Conversely, there are critical limitations to what Artificial Intelligence cannot achieve:</p>
-                    <ul class="bullet-list">
-                        <li><strong>Predicting the Future:</strong> Machine learning models are inherently statistical engines. They calculate probabilities based on historical datasets, concluding that <em>"based on historical precedents, Outcome X is statistically more probable than Outcome Y."</em> They cannot guarantee a deterministic future.</li>
-                        <li><strong>Adapting to Fundamental Regime Shifts:</strong> A machine learning model perfectly trained on highly stable, low-volatility historical markets will perform terribly when the market transitions into a volatile crisis environment.</li>
-                        <li><strong>Eliminating Operational Risk:</strong> Optimizing execution speeds does not equal an environment completely void of financial losses. Market rules dictate that AI remains a superior tool, not a completely different game. The macro market environment still moves on supply, demand, and unexpected global news.</li>
-                    </ul>
-                </article>
-
-                <!-- Interactive Quiz View -->
-                <section class="quiz-section" id="quiz">
-                    <h2>Knowledge Check</h2>
-                    <p>Review the foundational concepts covered in the course modules above.</p>
-                    
-                    <!-- Question 1 -->
-                    <div class="quiz-card">
-                        <div class="quiz-question">Question 1: What does "algorithmic trading" actually mean?</div>
-                        <div class="quiz-options">
-                            <button class="quiz-option" data-correct="false">A. Manual trading using indicators on a screen</button>
-                            <button class="quiz-option" data-correct="true">B. Software that buys and sells automatically based on a fixed set of rules</button>
-                            <button class="quiz-option" data-correct="false">C. A specific type of decentralized cryptocurrency asset</button>
-                        </div>
-                        <div class="quiz-explanation">
-                            <strong>Correct Answer: B</strong>
-                            <span>Algorithmic trading strictly utilizes software to follow a pre-set rule logic. This systematically removes human emotion from live execution, though it cannot guarantee profitability if the underlying strategy rules are fundamentally flawed.</span>
-                        </div>
-                    </div>
-
-                    <!-- Question 2 -->
-                    <div class="quiz-card">
-                        <div class="quiz-question">Question 2: How does cross-venue arbitrage generate a profit margin?</div>
-                        <div class="quiz-options">
-                            <button class="quiz-option" data-correct="false">A. By holding crypto long-term through market cycles</button>
-                            <button class="quiz-option" data-correct="true">B. By capturing short-lived price differences for the same asset across venues</button>
-                            <button class="quiz-option" data-correct="false">C. By accurately predicting the future direction of standard stock trends</button>
-                        </div>
-                        <div class="quiz-explanation">
-                            <strong>Correct Answer: B</strong>
-                            <span>Arbitrage exploits the minor, fleeting moments when a single asset trades at slightly different prices simultaneously on separate venues—buying low on one and selling high on the other.</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- FAQ Section -->
-                <section class="faq-section" id="faq">
-                    <h2>Frequently Asked Questions</h2>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">Do automated bots provide guaranteed buy/sell signals?</div>
-                        <div class="faq-answer">No. This platform and its assistant bots are entirely educational. We do not provide financial advice or recommend specific asset trades. All automated strategies require a clear understanding of the underlying risk parameters.</div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">Is algorithmic trading fully legal in global financial markets?</div>
-                        <div class="faq-answer">Yes. Algorithmic trading is entirely legal across all major global regulated financial and digital asset markets. It is subjected to standard market compliance and exchange regulations, and individual operators remain strictly responsible for compliance.</div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">Do I need to be a professional software programmer to understand these systems?</div>
-                        <div class="faq-answer">Not necessarily. Many modern platforms offer accessible visual user interfaces (UIs) with pre-built quantitative strategies. However, comprehensively understanding the core mechanics of how a strategy manages risk is highly essential—which is the main focus of this educational academy.</div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">Is historical backtesting performance a solid guarantee of future returns?</div>
-                        <div class="faq-answer">No. Historical performance is never a reliable predictor of future results. This rule applies equally to human manual traders, professional hedge fund managers, and advanced machine learning algorithms. Markets continuously evolve over time.</div>
-                    </div>
-                </section>
-
-                <!-- CTA Banner -->
-                <section class="bottom-cta">
-                    <h2>Interactive Assistant</h2>
-                    <p>Access quiz data, review additional case studies, and complete your curriculum via our official interactive Telegram assistant app.</p>
-                    <a href="https://t.me/GAITradeAppBot" class="btn-large" target="_blank">Launch Telegram Bot</a>
-                </section>
-
-            </div>
-
-            <!-- Sidebar Info -->
-            <aside class="sidebar">
-                <div class="sidebar-box">
-                    <h3>Course Curriculum</h3>
-                    <ul class="course-toc">
-                        <li><a href="#lesson1"><span>1.</span> Foundations of Algo Trading</a></li>
-                        <li><a href="#lesson2"><span>2.</span> Cross-Venue Arbitrage</a></li>
-                        <li><a href="#lesson3"><span>3.</span> Risk & Drawdown Realities</a></li>
-                        <li><a href="#lesson4"><span>4.</span> AI Capabilities & Limits</a></li>
-                    </ul>
-                </div>
-                
-                <div class="sidebar-box" style="background-color: var(--accent-light); border-color: #c3e6cb;">
-                    <h3 style="color: var(--accent-green); margin-bottom: 8px;">Academy Status</h3>
-                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 0;">Verified Educational Resource. Fully compliant with digital layout requirements for professional distribution networks.</p>
-                </div>
-            </aside>
-
-        </div>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <p>© 2026 G·AI Trade Academy. All rights reserved.</p>
-            <p class="footer-disclaimer"><strong>Risk Disclaimer:</strong> Trading financial instruments, including algorithmic trading and cross-venue arbitrage, involves substantial risk of loss and is not suitable for every investor. The educational content provided on this website is for informational and training purposes only and does not constitute financial, investment, or legal advice. Historical trading results or backtests do not guarantee future performance.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Инициализация Telegram WebApp
-        const tele = window.Telegram.WebApp;
-        tele.ready();
-        tele.expand();
-
-        // Логика интерактивного квиза
-        document.querySelectorAll('.quiz-card').forEach(card => {
-            const options = card.querySelectorAll('.quiz-option');
-            const explanation = card.querySelector('.quiz-explanation');
-
-            options.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Блокируем все кнопки в этой карточке квиза после клика
-                    options.forEach(opt => opt.disabled = true);
-
-                    const isCorrect = button.getAttribute('data-correct') === 'true';
-
-                    if (isCorrect) {
-                        button.classList.add('correct-choice');
-                    } else {
-                        button.classList.add('incorrect-choice');
-                        // Подсвечиваем правильный вариант, чтобы пользователь видел истину
-                        options.forEach(opt => {
-                            if (opt.getAttribute('data-correct') === 'true') {
-                                opt.classList.add('correct-choice');
-                            }
-                        });
-                    }
-
-                    // Показываем блок с объяснением ответа
-                    explanation.style.display = 'flex';
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+            font-size: 12px;
+            color:
