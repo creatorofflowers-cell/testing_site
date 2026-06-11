@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root {
             --bg-primary: #f8fafc;
@@ -316,11 +317,29 @@
             transition: all 0.2s;
             text-align: left;
             color: #cbd5e1;
+            width: 100%;
         }
 
-        .quiz-option:hover {
-            border-color: var(--accent-green);
+        .quiz-option:hover:not(:disabled) {
+            border-color: #94a3b8;
             color: white;
+        }
+
+        /* Классы для интерактивных ответов */
+        .quiz-option.correct-choice {
+            background-color: #065f46 !important;
+            border-color: #10b981 !important;
+            color: #ecfdf5 !important;
+        }
+
+        .quiz-option.incorrect-choice {
+            background-color: #991b1b !important;
+            border-color: #f43f5e !important;
+            color: #fff1f2 !important;
+        }
+
+        .quiz-option:disabled {
+            cursor: not-allowed;
         }
 
         .quiz-explanation {
@@ -329,7 +348,7 @@
             border-top: 1px solid #334155;
             font-size: 14px;
             color: #10b981;
-            display: flex;
+            display: none; /* Изначально скрыто */
             flex-direction: column;
             gap: 4px;
         }
@@ -552,12 +571,13 @@
                     <h2>Knowledge Check</h2>
                     <p>Review the foundational concepts covered in the course modules above.</p>
                     
+                    <!-- Question 1 -->
                     <div class="quiz-card">
                         <div class="quiz-question">Question 1: What does "algorithmic trading" actually mean?</div>
                         <div class="quiz-options">
-                            <button class="quiz-option">A. Manual trading using indicators on a screen</button>
-                            <button class="quiz-option" style="border-color: var(--accent-green); color: white;">B. Software that buys and sells automatically based on a fixed set of rules</button>
-                            <button class="quiz-option">C. A specific type of decentralized cryptocurrency asset</button>
+                            <button class="quiz-option" data-correct="false">A. Manual trading using indicators on a screen</button>
+                            <button class="quiz-option" data-correct="true">B. Software that buys and sells automatically based on a fixed set of rules</button>
+                            <button class="quiz-option" data-correct="false">C. A specific type of decentralized cryptocurrency asset</button>
                         </div>
                         <div class="quiz-explanation">
                             <strong>Correct Answer: B</strong>
@@ -565,12 +585,13 @@
                         </div>
                     </div>
 
+                    <!-- Question 2 -->
                     <div class="quiz-card">
                         <div class="quiz-question">Question 2: How does cross-venue arbitrage generate a profit margin?</div>
                         <div class="quiz-options">
-                            <button class="quiz-option">A. By holding crypto long-term through market cycles</button>
-                            <button class="quiz-option" style="border-color: var(--accent-green); color: white;">B. By capturing short-lived price differences for the same asset across venues</button>
-                            <button class="quiz-option">C. By accurately predicting the future direction of standard stock trends</button>
+                            <button class="quiz-option" data-correct="false">A. By holding crypto long-term through market cycles</button>
+                            <button class="quiz-option" data-correct="true">B. By capturing short-lived price differences for the same asset across venues</button>
+                            <button class="quiz-option" data-correct="false">C. By accurately predicting the future direction of standard stock trends</button>
                         </div>
                         <div class="quiz-explanation">
                             <strong>Correct Answer: B</strong>
@@ -641,5 +662,41 @@
         </div>
     </footer>
 
+    <script>
+        // Инициализация Telegram WebApp
+        const tele = window.Telegram.WebApp;
+        tele.ready();
+        tele.expand();
+
+        // Логика интерактивного квиза
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            const options = card.querySelectorAll('.quiz-option');
+            const explanation = card.querySelector('.quiz-explanation');
+
+            options.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Блокируем все кнопки в этой карточке квиза после клика
+                    options.forEach(opt => opt.disabled = true);
+
+                    const isCorrect = button.getAttribute('data-correct') === 'true';
+
+                    if (isCorrect) {
+                        button.classList.add('correct-choice');
+                    } else {
+                        button.classList.add('incorrect-choice');
+                        // Подсвечиваем правильный вариант, чтобы пользователь видел истину
+                        options.forEach(opt => {
+                            if (opt.getAttribute('data-correct') === 'true') {
+                                opt.classList.add('correct-choice');
+                            }
+                        });
+                    }
+
+                    // Показываем блок с объяснением ответа
+                    explanation.style.display = 'flex';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
